@@ -30,10 +30,10 @@ The service is most easily accessed using Postman
  - POST new items to the api like this:
   - POST `localhost:5000/course/`
   - Enter the body tab in postman
-  - Select `raw` as the encoding type
-  - Paste in something like this: `{
-	"course_title": "test course title the first",
-	"course_description": "test course description",
-	"course_type": "public"
-}`
-- Post a few items and check the topfive endpoint GET localhost:5000/course/topfive/
+  	- Select `raw` as the encoding type
+  	- Paste in something like this: `{
+		"course_title": "test course title the first",
+		"course_description": "test course description",
+		"course_type": "public"
+		}`
+	- Post a few items and check the topfive endpoint GET localhost:5000/course/topfive/
