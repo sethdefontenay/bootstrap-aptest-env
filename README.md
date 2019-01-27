@@ -38,4 +38,5 @@ The service is most easily accessed using Postman
 		"course_description": "test course description",
 		"course_type": "public"
 		}`
-	- Post a few items and check the topfive endpoint GET localhost:5000/course/topfive/
+	- Post a few items and check the topfive endpoint:
+		-GET `localhost:5000/course/topfive/`
