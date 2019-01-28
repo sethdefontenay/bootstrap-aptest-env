@@ -1,0 +1,38 @@
+Just some notes about choices I made around the particular design of this service:
+
+- I have been developing on reliabilly(the toolset which generated this) so adapting it to accept 
+some different requirements for this test required some interesting tradeoffs.
+Automation:
+- Most of the time actually spent on this exercise was in automating the setup of the project to work without
+too much complex instruction. Also to provide as clean an environment as possible when complete.
+
+Actual API work:
+- The main thrust I would like to improve upon is removing all of the sorting logic from the view-model
+- A decorator on either the controller level or the data-handling layers would provide more flexiblity
+- The reason that no decorator was applied is to not pre-optimize. Essentially, it is not currently known
+if there would ever be another use for sorting models to be presented and creating such a pattern for a once-off
+seemed like more overhead than it was worth.
+- As this test is supposed to be an example of my work. I figured it best to show what I would actually do in this
+situation. To me, productionized software-development is an evolution of a first-cut which continually iterates 
+until the product is sunset. 
+
+"If you aren't working on a product, it's probably already dead" -- Seth de Fontenay (probably)
+
+So I thought it best to produce my first-cut, and take notes for improvements if the future requirements call for a situation
+which needs them.
+
+Other:
+The Course service was generated to be deployed using Jenkins/Terraform/AWS, and has appropriate files to do so. 
+
+Infrastructure design considerations:
+Essentially the nice thing about containerization is that it provides isolation.
+- This means that because of the design of the scaffolded service, you can put the output docker image 
+onto any containerization service (Amazon ECS/Kubernetes/Docker Swarm etc) and need very little changes to environmental variables.
+- The other good thing about it is testing. Local development machine testing is practically identical to production testing
+which also has implications to deployment times and automation. If something works on my machine, and it's containerized, 
+it's most likely to also work just fine in a hosted environment. Knowing this, my deployment pipeline can be highly automated, 
+reducing or removing manual production or stage environment testing, saving cost and freeing developers to work on features.
+- It is also nicely isolated from the project to be deleted as easily as possible by deleting the course root folder
+- Automated testing/linting commands provide easy ways to keep clean and safe to deploy
+- The cons about having all of Data Clients/Base Models/Base Type Controllers to inherit from is the added complexity if you try to build
+a feature that wasn't planned for (ie: ordering of result items or only presenting some fields to the api endpoint)
