@@ -1,5 +1,4 @@
 # bootstrap-aptest-env
-Easy way:
 - Pull this repo to get started
 - Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - Install [Vagrant](https://www.vagrantup.com/downloads.html)
