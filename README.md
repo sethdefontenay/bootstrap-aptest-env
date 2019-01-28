@@ -1,4 +1,5 @@
 # bootstrap-aptest-env
+references: [apbackendtest](https://github.com/sethdefontenay/apbackendtest), [reliabilly](https://github.com/sethdefontenay/reliabilly)
 - Pull this repo to get started
 - Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - Install [Vagrant](https://www.vagrantup.com/downloads.html)
