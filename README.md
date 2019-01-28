@@ -14,21 +14,22 @@
   
 Now you can execute commands against the project
 - `inv --list` will show you a list of all commands
-The main points will be linting, testing and bringing up the service
+The main points will be linting, testing, bringing up the service, and running integration tests
   - `inv lint`
   - `inv test`
   - `inv up`
+  - `inv int-test` (this will only work after an `inv up`, it can also be run as `inv int` if you don't up first)
 Once you `inv up` you will build a new docker container
 The service is most easily accessed using Postman
 - Open postman
-- Create a new GET request `localhost:5000/course/`
+- Create a new GET request `localhost:8080/course/`
 - Add a Header 
   - Key: `Authorization`
   - Value: `dev`
   
  - Send a request
  - POST new items to the api like this:
-  	- POST `localhost:5000/course/`
+  	- POST `localhost:8080/course/`
   - Enter the body tab in postman
   	- Select `raw` as the encoding type
   	- Paste in something like this: `{
@@ -37,4 +38,4 @@ The service is most easily accessed using Postman
 		"course_type": "public"
 		}`
 	- Post a few items and check the topfive endpoint:
-		- GET `localhost:5000/course/topfive/`
+		- GET `localhost:8080/course/topfive/`
